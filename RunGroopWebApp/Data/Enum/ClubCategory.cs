@@ -6,6 +6,6 @@
         Womens,
         City,
         Trail,
-        Edurance
+        Endurance
     }
 }
