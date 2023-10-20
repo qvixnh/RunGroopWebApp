@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using RunGroopWebApp.Data;
 
 namespace RunGroopWebApp.Controllers
@@ -16,6 +17,11 @@ namespace RunGroopWebApp.Controllers
 
             var clubs = _context.Clubs.ToList();//M
             return View(clubs);//V
+        }
+
+        public IActionResult Detail(int id) {
+            var club = _context.Clubs.Include(a=>a.Address).SingleOrDefault(c => c.Id == id);
+            return View(club);
         }
     }
 }
