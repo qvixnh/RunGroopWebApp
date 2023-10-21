@@ -12,7 +12,7 @@ namespace RunGroopWebApp.Controllers
 
         public RaceController(IRaceRepository raceRepository)
         {
-            _raceRepository = raceRepository;
+            _raceRepository = raceRepository;       
         }
         public async Task<IActionResult> IndexAsync()
         {
