@@ -1,6 +1,7 @@
 ﻿@using RunGroopWebApp.Data.Enum;
-@model Race
-<form method="post" asp-action="Create">
+@using RunGroopWebApp.ViewModels;
+@model CreateRaceViewModel
+<form method="post" asp-action="Create" enctype="multipart/form-data">
     <div class="form-group">
         <label asp-for="Title">Title</label>
         <input asp-for="Title" class="form-control" placeholder="Title">
@@ -11,11 +12,7 @@
         <input asp-for="Description" class="form-control" placeholder="Description">
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
-    <div class="form-group">
-        <label asp-for="Image">Image</label>
-        <input asp-for="Image" class="form-control" placeholder="Image">
-        <span asp-validation-for="Image" class="text-danger"></span>
-    </div>
+    
     <div class="form-group">
         <label asp-for="RaceCategory">Race Category</label>
         <select asp-for="RaceCategory" class="form-control" asp-items="@Html.GetEnumSelectList<RaceCategory>()">
@@ -38,7 +35,10 @@
         <input asp-for="Address.State" class="form-control" placeholder="Street">
         <span asp-validation-for="Address.State" class="text-danger"></span>
     </div>
-
-
+    <div class="form-group">
+        <label asp-for="Image">Image</label>
+        <input asp-for="Image" type="file" class="form-control" placeholder="Image">
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
